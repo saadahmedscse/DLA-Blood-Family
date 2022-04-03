@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:background="@drawable/bg_white_5"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/warning"
+        app:tint="@color/colorLightRed" />
+
+    <TextView
+        android:id="@+id/popup_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/regular"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        android:text="This is an popup message to user, Please read this message hello"/>
+
+
+    <TextView
+        android:id="@+id/action_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:textColor="@color/colorBlack"
+        android:background="@drawable/bg_light_red_5"
+        android:layout_marginTop="15dp"
+        android:text="OK"
+        android:fontFamily="@font/regular"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+</LinearLayout>

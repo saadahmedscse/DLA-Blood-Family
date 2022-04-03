@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "657573901267",
+    "project_id": "dla-blood-family",
+    "storage_bucket": "dla-blood-family.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657573901267:android:ffec1f25a3112109693526",
+        "android_client_info": {
+          "package_name": "com.caffeine.dlabloodfamily"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "657573901267-6sgdrq7kgu8aamgof4dppidl7g6v2aef.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrhq9_GABtEpPzYEUPrCTs0pBZZCa6yBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "657573901267-6sgdrq7kgu8aamgof4dppidl7g6v2aef.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
