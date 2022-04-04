@@ -104,7 +104,7 @@ object Constants {
         }
 
         val snackbarView = snackBar.view
-        val font = ResourcesCompat.getFont(context, R.font.regular)
+        val font = ResourcesCompat.getFont(context, R.font.rocko)
 
         snackbarView.setBackgroundResource(R.drawable.snack_bg)
         val snackText = snackbarView.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
