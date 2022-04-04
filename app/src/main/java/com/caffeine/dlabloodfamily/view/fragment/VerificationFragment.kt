@@ -1,60 +1,204 @@
 package com.caffeine.dlabloodfamily.view.fragment
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.caffeine.dlabloodfamily.R
+import com.caffeine.dlabloodfamily.databinding.FragmentVerificationBinding
+import com.caffeine.dlabloodfamily.utils.Constants
+import com.caffeine.dlabloodfamily.utils.DataState
+import com.caffeine.dlabloodfamily.viewmodel.AuthViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [VerificationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class VerificationFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding : FragmentVerificationBinding
+    private val args: VerificationFragmentArgs by navArgs()
+    private val viewModel : AuthViewModel by viewModels()
+
+    private var otp = ""
+    private var cnt = 0
+    private var isButtonEnabled = false
+
+    private var verificationID = ""
+    private var number = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_verification, container, false)
-    }
+    ): View {
+        binding = FragmentVerificationBinding.inflate(inflater)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment VerificationFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            VerificationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        verificationID = args.args[0]
+        number = args.args[1]
+
+        jumpToNext()
+
+        binding.verifyBtn.setOnClickListener{
+            if (isButtonEnabled){
+                otpIntialize()
+                viewModel.verifyOTP(verificationID, otp)
+                viewModel.authLiveData.observe(viewLifecycleOwner){
+                    when (it) {
+                        is DataState.Loading -> {
+                            binding.arrowOne.visibility = View.VISIBLE
+                            binding.loadingLayout.visibility = View.VISIBLE
+                        }
+
+                        is DataState.Success -> {
+                            binding.arrowTwo.visibility = View.VISIBLE
+                            binding.finalLayout.visibility = View.VISIBLE
+                        }
+
+                        is DataState.Failed -> {
+                            binding.confirmationText.text = it.message
+                            binding.confirmationIcon.setImageResource(R.drawable.warning)
+                            binding.confirmationIcon.setColorFilter(ContextCompat.getColor(requireContext(), R.color.colorLightRed), android.graphics.PorterDuff.Mode.MULTIPLY);
+                            binding.arrowTwo.visibility = View.VISIBLE
+                            binding.finalLayout.visibility = View.VISIBLE
+                        }
+                    }
                 }
             }
+        }
+
+        return binding.root
+    }
+
+    private fun otpIntialize(){
+        otp = binding.otp1.text.toString() + binding.otp2.text.toString() + binding.otp3.text.toString() + binding.otp4.text.toString() + binding.otp5.text.toString() + binding.otp6.text.toString()
+    }
+
+    private fun jumpToNext(){
+        binding.otp1.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (binding.otp1.text.toString().length == 1){
+                    binding.otp2.requestFocus()
+                    cnt++
+                }
+                if (binding.otp1.text.toString().isEmpty()){
+                    cnt--
+                }
+                makeButtonEnabled()
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+
+        })
+
+        binding.otp2.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (binding.otp2.text.toString().length == 1){
+                    binding.otp3.requestFocus()
+                    cnt++
+                }
+                if (binding.otp2.text.toString().isEmpty()){
+                    binding.otp1.requestFocus()
+                    cnt--
+                }
+                makeButtonEnabled()
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+
+        })
+
+        binding.otp3.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (binding.otp3.text.toString().length == 1){
+                    binding.otp4.requestFocus()
+                    cnt++
+                }
+                if (binding.otp3.text.toString().isEmpty()){
+                    binding.otp2.requestFocus()
+                    cnt--
+                }
+                makeButtonEnabled()
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+
+        })
+
+        binding.otp4.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (binding.otp4.text.toString().length == 1){
+                    binding.otp5.requestFocus()
+                    cnt++
+                }
+                if (binding.otp4.text.toString().isEmpty()){
+                    binding.otp3.requestFocus()
+                    cnt--
+                }
+                makeButtonEnabled()
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+
+        })
+
+        binding.otp5.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (binding.otp5.text.toString().length == 1){
+                    binding.otp6.requestFocus()
+                    cnt++
+                }
+                if (binding.otp5.text.toString().isEmpty()){
+                    binding.otp4.requestFocus()
+                    cnt--
+                }
+                makeButtonEnabled()
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+
+        })
+
+        binding.otp6.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (binding.otp6.text.toString().length == 1){
+                    cnt++
+                }
+                if (binding.otp6.text.toString().isEmpty()){
+                    binding.otp5.requestFocus()
+                    cnt--
+                }
+                makeButtonEnabled()
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+
+        })
+    }
+
+    private fun makeButtonEnabled(){
+        if (cnt == 6){
+            isButtonEnabled = true
+            binding.verifyBtn.setBackgroundResource(R.drawable.bg_light_red_5)
+        }
+        else {
+            isButtonEnabled = false
+            binding.verifyBtn.setBackgroundResource(R.drawable.bg_disabled_button)
+        }
     }
 }
