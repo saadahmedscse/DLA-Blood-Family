@@ -18,13 +18,13 @@
         android:id="@+id/popup_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/regular"
+        android:fontFamily="@font/rocko"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:textAlignment="center"
         android:layout_marginTop="10dp"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp"
+        android:textSize="@dimen/smaller_text"
         android:text="This is an popup message to user, Please read this message hello"/>
 
 
@@ -41,8 +41,8 @@
         android:background="@drawable/bg_light_red_5"
         android:layout_marginTop="15dp"
         android:text="OK"
-        android:fontFamily="@font/regular"
-        android:textSize="16sp"
+        android:fontFamily="@font/rocko"
+        android:textSize="@dimen/smaller_text"
         android:textStyle="bold"/>
 
 </LinearLayout>
