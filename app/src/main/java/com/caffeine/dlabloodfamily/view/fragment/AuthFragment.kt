@@ -21,6 +21,7 @@ class AuthFragment : Fragment() {
     private lateinit var binding : FragmentAuthBinding
     private val viewModel : AuthViewModel by viewModels()
     private var isButtonEnabled = false
+    private var verificationID = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +45,10 @@ class AuthFragment : Fragment() {
                             }
 
                             is DataState.Success -> {
-                                Navigation.findNavController(binding.root).navigate(R.id.auth_to_verification)
+                                verificationID = it.data!!
+                                val array = arrayOf(verificationID, "+88${binding.number.text}")
+                                val action = AuthFragmentDirections.authToVerification(array)
+                                Navigation.findNavController(binding.root).navigate(action)
                                 binding.progressBar.visibility = View.GONE
                                 binding.btnTxt.visibility = View.VISIBLE
                             }
