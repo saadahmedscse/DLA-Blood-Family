@@ -19,6 +19,9 @@
         android:name="com.caffeine.dlabloodfamily.view.fragment.VerificationFragment"
         android:label="fragment_verification"
         tools:layout="@layout/fragment_verification" >
+        <argument
+            android:name="args"
+            app:argType="string[]" />
         <action
             android:id="@+id/verification_to_info"
             app:destination="@id/infoFragment" />
@@ -28,4 +31,7 @@
         android:name="com.caffeine.dlabloodfamily.view.fragment.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" />
+    <argument
+        android:name="args"
+        app:argType="string" />
 </navigation>
