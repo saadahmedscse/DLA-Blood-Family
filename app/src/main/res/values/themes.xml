@@ -2,11 +2,11 @@
     <!-- Base application theme. -->
     <style name="Theme.DLABloodFamily" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/colorRed</item>
-        <item name="colorPrimaryVariant">@color/colorLightRed</item>
+        <item name="colorPrimary">@color/colorDarkGrey</item>
+        <item name="colorPrimaryVariant">@color/colorDarkGrey</item>
         <item name="colorOnPrimary">@color/colorWhite</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/colorLightRed</item>
+        <item name="colorSecondary">@color/colorBlack</item>
         <item name="colorSecondaryVariant">@color/colorWhite</item>
         <item name="colorOnSecondary">@color/colorWhite</item>
         <!-- Status bar color. -->
