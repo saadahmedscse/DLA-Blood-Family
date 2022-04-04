@@ -84,7 +84,7 @@ class AuthRepository : AuthInterface {
         code: String,
         verifyCodeMutableLiveData: MutableLiveData<DataState<String>>
     ) {
-        val credential = PhoneAuthProvider.getCredential(verificationID, code);
+        val credential = PhoneAuthProvider.getCredential(verificationID, code)
         signInWithCredential(credential, verifyCodeMutableLiveData)
     }
 }
