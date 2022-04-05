@@ -33,6 +33,7 @@ class AuthFragment : Fragment() {
 
         binding.authBtn.setOnClickListener{
             if (isButtonEnabled){
+                viewModel.authLiveData.removeObservers(viewLifecycleOwner)
                 if (Constants.internetAvailable(requireContext())){
                     //send verification code
                     viewModel.sendVerificationCode(requireActivity(), binding.number.text.toString())

@@ -8,6 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.caffeine.dlabloodfamily.R
 import com.caffeine.dlabloodfamily.databinding.FragmentVerificationBinding
@@ -59,6 +61,7 @@ class VerificationFragment : Fragment() {
 
         binding.verifyBtn.setOnClickListener{
             if (isButtonEnabled){
+                isButtonEnabled = false
                 otpIntialize()
                 viewModel.verifyOTP(verificationID, otp)
                 viewModel.authLiveData.observe(viewLifecycleOwner){
@@ -91,7 +94,7 @@ class VerificationFragment : Fragment() {
                             Handler(Looper.getMainLooper()).postDelayed({
                                 if (it.data == "noInfo") {
                                     val action = VerificationFragmentDirections.verificationToInfo("+88$number")
-                                    Navigation.findNavController(binding.root).navigate(action)
+                                    Navigation.findNavController(requireView()).navigate(action)
                                 }
                                 if (it.data == "hasInfo"){
                                     Constants.intentToActivity(requireActivity(), HomeActivity::class.java)
