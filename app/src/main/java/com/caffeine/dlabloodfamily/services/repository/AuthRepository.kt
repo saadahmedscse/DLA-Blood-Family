@@ -21,7 +21,7 @@ class AuthRepository : AuthInterface {
     private lateinit var verificationID : String
 
     override fun sendOtpCode(number: String, activity: Activity, authMutableLiveData: MutableLiveData<DataState<String>>) {
-        authMutableLiveData.postValue(DataState.Loading())
+        authMutableLiveData.value = DataState.Loading()
         val options = PhoneAuthOptions.newBuilder(Firebase.auth)
             .setPhoneNumber(number)
             .setTimeout(30L, TimeUnit.SECONDS)
@@ -34,7 +34,7 @@ class AuthRepository : AuthInterface {
                 ) {
                     super.onCodeSent(verificationId, forceResendingToken)
                     verificationID = verificationId
-                    authMutableLiveData.postValue(DataState.Success(verificationId))
+                    authMutableLiveData.value = DataState.Success(verificationId)
                 }
 
                 override fun onVerificationCompleted(phoneAuthCredential: PhoneAuthCredential) {
@@ -42,7 +42,7 @@ class AuthRepository : AuthInterface {
                 }
 
                 override fun onVerificationFailed(e: FirebaseException) {
-                    authMutableLiveData.postValue(DataState.Failed(e.message))
+                    authMutableLiveData.value = DataState.Failed(e.message)
                 }
             })
             .build()
@@ -50,14 +50,14 @@ class AuthRepository : AuthInterface {
     }
 
     override fun signInWithCredential(credential: PhoneAuthCredential, authMutableLiveData: MutableLiveData<DataState<String>>) {
-        authMutableLiveData.postValue(DataState.Loading())
+        authMutableLiveData.value = DataState.Loading()
         Constants.auth.signInWithCredential(credential)
             .addOnCompleteListener{
                 if (it.isSuccessful){
                     checkData(authMutableLiveData)
                 }
                 else{
-                    authMutableLiveData.postValue(DataState.Failed(it.exception?.message))
+                    authMutableLiveData.setValue(DataState.Failed(it.exception?.message))
                 }
             }
     }
@@ -67,13 +67,13 @@ class AuthRepository : AuthInterface {
             .addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.child("uid").getValue(String::class.java) == null){
-                        authMutableLiveData.postValue(DataState.Success("noInfo"))
+                        authMutableLiveData.setValue(DataState.Success("noInfo"))
                     }
-                    else authMutableLiveData.postValue(DataState.Success("hasInfo"))
+                    else authMutableLiveData.setValue(DataState.Success("hasInfo"))
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    authMutableLiveData.postValue(DataState.Failed(error.message))
+                    authMutableLiveData.value = DataState.Failed(error.message)
                 }
 
             })
