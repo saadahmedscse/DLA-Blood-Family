@@ -33,7 +33,7 @@
         tools:layout="@layout/fragment_info">
 
         <argument
-            android:name="arg"
+            android:name="number"
             app:argType="string" />
 
     </fragment>
