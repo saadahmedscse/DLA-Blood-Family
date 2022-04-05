@@ -1,21 +1,29 @@
 package com.caffeine.dlabloodfamily.view.fragment
 
+import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.caffeine.dlabloodfamily.R
 import com.caffeine.dlabloodfamily.databinding.FragmentVerificationBinding
 import com.caffeine.dlabloodfamily.utils.Constants
 import com.caffeine.dlabloodfamily.utils.DataState
+import com.caffeine.dlabloodfamily.view.activity.HomeActivity
 import com.caffeine.dlabloodfamily.viewmodel.AuthViewModel
 
 class VerificationFragment : Fragment() {
@@ -31,6 +39,10 @@ class VerificationFragment : Fragment() {
     private var verificationID = ""
     private var number = ""
 
+    private lateinit var slideTop : Animation
+    private lateinit var slideBottom : Animation
+
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,7 +51,10 @@ class VerificationFragment : Fragment() {
 
         verificationID = args.args[0]
         number = args.args[1]
+        slideTop = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_top)
+        slideBottom = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_bottom)
 
+        makeOtpEmpty()
         jumpToNext()
 
         binding.verifyBtn.setOnClickListener{
@@ -51,19 +66,57 @@ class VerificationFragment : Fragment() {
                         is DataState.Loading -> {
                             binding.arrowOne.visibility = View.VISIBLE
                             binding.loadingLayout.visibility = View.VISIBLE
+                            binding.arrowOne.startAnimation(slideBottom)
+                            binding.loadingLayout.startAnimation(slideBottom)
                         }
 
                         is DataState.Success -> {
-                            binding.arrowTwo.visibility = View.VISIBLE
-                            binding.finalLayout.visibility = View.VISIBLE
+                            binding.confirmationText.text = "Mobile Number Confirmed"
+                            binding.confirmationIcon.setImageResource(R.drawable.checked)
+                            binding.confirmationIcon.colorFilter = null
+                            Handler(Looper.getMainLooper()).postDelayed({
+                                binding.arrowTwo.visibility = View.VISIBLE
+                                binding.finalLayout.visibility = View.VISIBLE
+                                binding.arrowTwo.startAnimation(slideBottom)
+                                binding.finalLayout.startAnimation(slideBottom)
+                            }, 1500)
+                            Handler(Looper.getMainLooper()).postDelayed({
+                                binding.arrowOne.visibility = View.GONE
+                                binding.loadingLayout.visibility = View.GONE
+                                binding.arrowTwo.visibility = View.GONE
+                                binding.finalLayout.visibility = View.GONE
+                                binding.verifyBtn.visibility = View.VISIBLE
+                            }, 4000)
+
+                            Handler(Looper.getMainLooper()).postDelayed({
+                                if (it.data == "noInfo") {
+                                    val action = VerificationFragmentDirections.verificationToInfo("+88$number")
+                                    Navigation.findNavController(binding.root).navigate(action)
+                                }
+                                if (it.data == "hasInfo"){
+                                    Constants.intentToActivity(requireActivity(), HomeActivity::class.java)
+                                }
+                            }, 3000)
                         }
 
                         is DataState.Failed -> {
-                            binding.confirmationText.text = it.message
+                            binding.confirmationText.text = "Invalid verification code"
                             binding.confirmationIcon.setImageResource(R.drawable.warning)
                             binding.confirmationIcon.setColorFilter(ContextCompat.getColor(requireContext(), R.color.colorLightRed), android.graphics.PorterDuff.Mode.MULTIPLY);
-                            binding.arrowTwo.visibility = View.VISIBLE
-                            binding.finalLayout.visibility = View.VISIBLE
+                            Handler(Looper.getMainLooper()).postDelayed({
+                                binding.arrowTwo.visibility = View.VISIBLE
+                                binding.finalLayout.visibility = View.VISIBLE
+                                binding.arrowTwo.startAnimation(slideBottom)
+                                binding.finalLayout.startAnimation(slideBottom)
+                            }, 1500)
+
+                            Handler(Looper.getMainLooper()).postDelayed({
+                                binding.arrowOne.visibility = View.GONE
+                                binding.loadingLayout.visibility = View.GONE
+                                binding.arrowTwo.visibility = View.GONE
+                                binding.finalLayout.visibility = View.GONE
+                                binding.verifyBtn.visibility = View.VISIBLE
+                            }, 4000)
                         }
                     }
                 }
@@ -75,6 +128,15 @@ class VerificationFragment : Fragment() {
 
     private fun otpIntialize(){
         otp = binding.otp1.text.toString() + binding.otp2.text.toString() + binding.otp3.text.toString() + binding.otp4.text.toString() + binding.otp5.text.toString() + binding.otp6.text.toString()
+    }
+
+    private fun makeOtpEmpty(){
+        binding.otp1.setText("")
+        binding.otp2.setText("")
+        binding.otp3.setText("")
+        binding.otp4.setText("")
+        binding.otp5.setText("")
+        binding.otp6.setText("")
     }
 
     private fun jumpToNext(){
