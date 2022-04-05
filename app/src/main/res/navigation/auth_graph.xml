@@ -30,8 +30,11 @@
         android:id="@+id/infoFragment"
         android:name="com.caffeine.dlabloodfamily.view.fragment.InfoFragment"
         android:label="fragment_info"
-        tools:layout="@layout/fragment_info" />
-    <argument
-        android:name="args"
-        app:argType="string" />
+        tools:layout="@layout/fragment_info">
+
+        <argument
+            android:name="arg"
+            app:argType="string" />
+
+    </fragment>
 </navigation>
