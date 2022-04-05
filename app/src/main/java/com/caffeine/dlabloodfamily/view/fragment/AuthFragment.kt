@@ -65,7 +65,7 @@ class AuthFragment : Fragment() {
                 else {
                     AlertDialog.showAlertDialog(
                         requireContext(),
-                        "No internet connection available. Please check your internet connecttion and try again",
+                        "No internet connection available. Please check your internet connection and try again",
                         "Close")
                 }
             }

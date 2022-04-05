@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginStart="@dimen/size_15"
+    android:layout_marginEnd="@dimen/size_15"
+    android:layout_marginTop="@dimen/size_5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/ap"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_40"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/size_5"
+            android:fontFamily="@font/rocko"
+            android:textColor="@color/colorDarkGrey"
+            android:background="@drawable/bg_light_grey_5"
+            android:gravity="center"
+            android:text="A+"
+            android:textSize="@dimen/small_text"/>
+
+        <TextView
+            android:id="@+id/an"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_40"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/size_5"
+            android:layout_marginEnd="@dimen/size_5"
+            android:fontFamily="@font/rocko"
+            android:textColor="@color/colorDarkGrey"
+            android:background="@drawable/bg_light_grey_5"
+            android:gravity="center"
+            android:text="A-"
+            android:textSize="@dimen/small_text"/>
+
+        <TextView
+            android:id="@+id/bp"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_40"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/size_5"
+            android:layout_marginEnd="@dimen/size_5"
+            android:fontFamily="@font/rocko"
+            android:textColor="@color/colorDarkGrey"
+            android:background="@drawable/bg_light_grey_5"
+            android:gravity="center"
+            android:text="B+"
+            android:textSize="@dimen/small_text"/>
+
+        <TextView
+            android:id="@+id/bn"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_40"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/size_5"
+            android:fontFamily="@font/rocko"
+            android:textColor="@color/colorDarkGrey"
+            android:background="@drawable/bg_light_grey_5"
+            android:gravity="center"
+            android:text="B-"
+            android:textSize="@dimen/small_text"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_10"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/op"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_40"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/size_5"
+            android:fontFamily="@font/rocko"
+            android:textColor="@color/colorDarkGrey"
+            android:background="@drawable/bg_light_grey_5"
+            android:gravity="center"
+            android:text="O+"
+            android:textSize="@dimen/small_text"/>
+
+        <TextView
+            android:id="@+id/on"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_40"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/size_5"
+            android:layout_marginEnd="@dimen/size_5"
+            android:fontFamily="@font/rocko"
+            android:textColor="@color/colorDarkGrey"
+            android:background="@drawable/bg_light_grey_5"
+            android:gravity="center"
+            android:text="O-"
+            android:textSize="@dimen/small_text"/>
+
+        <TextView
+            android:id="@+id/abp"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_40"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/size_5"
+            android:layout_marginEnd="@dimen/size_5"
+            android:fontFamily="@font/rocko"
+            android:textColor="@color/colorDarkGrey"
+            android:background="@drawable/bg_light_grey_5"
+            android:gravity="center"
+            android:text="AB+"
+            android:textSize="@dimen/small_text"/>
+
+        <TextView
+            android:id="@+id/abn"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_40"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/size_5"
+            android:fontFamily="@font/rocko"
+            android:textColor="@color/colorDarkGrey"
+            android:background="@drawable/bg_light_grey_5"
+            android:gravity="center"
+            android:text="AB-"
+            android:textSize="@dimen/small_text"/>
+
+    </LinearLayout>
+
+</LinearLayout>
