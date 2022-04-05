@@ -20,8 +20,9 @@
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/alert_dialog.xml" value="0.25" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/fragment_auth.xml" value="0.25" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/fragment_checking.xml" value="0.209375" />
-        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/fragment_info.xml" value="0.209375" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/fragment_info.xml" value="0.25" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/fragment_verification.xml" value="0.25" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/layout_blood_groups.xml" value="0.25" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/success_dialog.xml" value="0.25" />
       </map>
     </option>
