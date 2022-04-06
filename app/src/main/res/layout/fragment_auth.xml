@@ -20,6 +20,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/large_text"
+            android:textColor="@color/colorLightRed"
+            android:fontFamily="@font/anydore"
+            android:text="Dream Life Association"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/size_15"
             android:layout_marginTop="@dimen/size_20"
             android:textSize="@dimen/large_text"
