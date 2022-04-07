@@ -17,21 +17,22 @@
             android:padding="@dimen/size_10">
 
             <EditText
+                android:id="@+id/search_bar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/bg_light_grey_5"
+                android:fontFamily="@font/rocko"
+                android:hint="Filter by blood group"
                 android:paddingStart="@dimen/size_40"
                 android:paddingEnd="@dimen/size_10"
-                android:hint="Search by blood group"
-                android:fontFamily="@font/rocko"
-                android:textSize="@dimen/small_text"
-                android:background="@drawable/bg_light_grey_5"/>
+                android:textSize="@dimen/small_text" />
 
             <ImageView
                 android:layout_width="@dimen/size_30"
                 android:layout_height="@dimen/size_30"
-                android:src="@drawable/search"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/size_5"/>
+                android:layout_marginStart="@dimen/size_5"
+                android:src="@drawable/search" />
 
         </RelativeLayout>
 
