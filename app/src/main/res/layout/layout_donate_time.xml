@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginStart="@dimen/size_15"
+    android:layout_marginEnd="@dimen/size_15"
+    android:layout_marginTop="@dimen/size_5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/morning"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_40"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/size_5"
+            android:fontFamily="@font/rocko"
+            android:textColor="@color/colorDarkGrey"
+            android:background="@drawable/bg_light_grey_5"
+            android:gravity="center"
+            android:text="Morning"
+            android:textSize="@dimen/small_text"/>
+
+        <TextView
+            android:id="@+id/noon"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_40"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/size_5"
+            android:layout_marginEnd="@dimen/size_5"
+            android:fontFamily="@font/rocko"
+            android:textColor="@color/colorDarkGrey"
+            android:background="@drawable/bg_light_grey_5"
+            android:gravity="center"
+            android:text="Noon"
+            android:textSize="@dimen/small_text"/>
+
+        <TextView
+            android:id="@+id/evening"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_40"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/size_5"
+            android:layout_marginEnd="@dimen/size_5"
+            android:fontFamily="@font/rocko"
+            android:textColor="@color/colorDarkGrey"
+            android:background="@drawable/bg_light_grey_5"
+            android:gravity="center"
+            android:text="Evening"
+            android:textSize="@dimen/small_text"/>
+
+        <TextView
+            android:id="@+id/night"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/size_40"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/size_5"
+            android:fontFamily="@font/rocko"
+            android:textColor="@color/colorDarkGrey"
+            android:background="@drawable/bg_light_grey_5"
+            android:gravity="center"
+            android:text="Night"
+            android:textSize="@dimen/small_text"/>
+
+    </LinearLayout>
+
+</LinearLayout>
