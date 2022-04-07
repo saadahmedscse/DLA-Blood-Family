@@ -12,10 +12,7 @@ import androidx.fragment.app.viewModels
 import com.caffeine.dlabloodfamily.R
 import com.caffeine.dlabloodfamily.databinding.FragmentPostBinding
 import com.caffeine.dlabloodfamily.services.model.BloodModel
-import com.caffeine.dlabloodfamily.utils.AlertDialog
-import com.caffeine.dlabloodfamily.utils.Constants
-import com.caffeine.dlabloodfamily.utils.DataState
-import com.caffeine.dlabloodfamily.utils.SuccessDialog
+import com.caffeine.dlabloodfamily.utils.*
 import com.caffeine.dlabloodfamily.view.activity.HomeActivity
 import com.caffeine.dlabloodfamily.viewmodel.PostViewModel
 import com.caffeine.dlabloodfamily.viewmodel.UserViewModel
@@ -56,6 +53,10 @@ class PostFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPostBinding.inflate(inflater)
+
+        val adUtils = AdUtils.getInstance(requireContext())
+        adUtils.showBannerAd(binding.adView)
+        adUtils.loadVideoAd()
 
         userViewModel.getMyInfo()
         userViewModel.myLiveData.observe(viewLifecycleOwner){
@@ -114,6 +115,7 @@ class PostFragment : Fragment() {
                             }
 
                             is DataState.Success -> {
+                                adUtils.showVideoAd(requireActivity())
                                 SuccessDialog.showAlertDialog(requireContext(), it.data!!, "Close")
                                 binding.progressBar.visibility = View.GONE
                                 binding.btnTxt.visibility = View.VISIBLE
