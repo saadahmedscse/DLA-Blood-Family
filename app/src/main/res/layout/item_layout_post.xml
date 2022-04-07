@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="@dimen/size_15"
+    android:layout_marginEnd="@dimen/size_15"
+    android:layout_marginTop="@dimen/size_10"
+    android:background="@drawable/bg_light_grey_5"
+    android:padding="@dimen/size_10">
+
+    <TextView
+        android:id="@+id/bg"
+        android:layout_width="@dimen/size_40"
+        android:layout_height="@dimen/size_40"
+        android:background="@drawable/bg_white_circle"
+        android:fontFamily="@font/rocko"
+        android:gravity="center"
+        android:text="AB+"
+        android:textColor="@color/colorLightRed"
+        android:textSize="@dimen/smaller_text"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_10"
+        android:layout_marginTop="@dimen/size_10"
+        android:layout_toEndOf="@id/bg"
+        android:fontFamily="@font/rocko"
+        android:text="Abu Syed Al Sakib"
+        android:textColor="@color/colorDarkGrey"
+        android:textSize="@dimen/small_text"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bg"
+        android:layout_marginTop="@dimen/size_10"
+        android:fontFamily="@font/rocko"
+        android:text="Quantity"
+        android:textColor="@color/colorGrey"
+        android:textSize="@dimen/smaller_text" />
+
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_quantity"
+        android:fontFamily="@font/rocko"
+        android:text="8 Bag"
+        android:textColor="@color/colorLightRed"
+        android:textSize="@dimen/smaller_text"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_20"
+        android:layout_marginTop="@dimen/size_10"
+        android:layout_below="@id/bg"
+        android:layout_toEndOf="@id/txt_quantity"
+        android:fontFamily="@font/rocko"
+        android:text="Time"
+        android:textColor="@color/colorGrey"
+        android:textSize="@dimen/smaller_text" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_quantity"
+        android:layout_marginStart="@dimen/size_20"
+        android:layout_toEndOf="@id/txt_quantity"
+        android:fontFamily="@font/rocko"
+        android:text="Evening"
+        android:textColor="@color/colorDarkGrey"
+        android:textSize="@dimen/smaller_text"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bg"
+        android:layout_marginStart="@dimen/size_20"
+        android:layout_marginTop="@dimen/size_10"
+        android:layout_toEndOf="@id/time"
+        android:fontFamily="@font/rocko"
+        android:text="Date"
+        android:textColor="@color/colorGrey"
+        android:textSize="@dimen/smaller_text" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_20"
+        android:layout_toEndOf="@id/time"
+        android:layout_below="@id/txt_date"
+        android:fontFamily="@font/rocko"
+        android:text="23-Dec-2022"
+        android:textColor="@color/colorDarkGrey"
+        android:textSize="@dimen/smaller_text"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_hospital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/quantity"
+        android:layout_marginTop="@dimen/size_10"
+        android:fontFamily="@font/rocko"
+        android:text="Hospital"
+        android:textColor="@color/colorGrey"
+        android:textSize="@dimen/smaller_text" />
+
+    <TextView
+        android:id="@+id/hospital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_hospital"
+        android:fontFamily="@font/rocko"
+        android:text="Popular Diagnostic Center Dhaka"
+        android:textColor="@color/colorDarkGrey"
+        android:textSize="@dimen/smaller_text"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hospital"
+        android:layout_marginTop="@dimen/size_10"
+        android:fontFamily="@font/rocko"
+        android:text="Location"
+        android:textColor="@color/colorGrey"
+        android:textSize="@dimen/smaller_text" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_location"
+        android:fontFamily="@font/rocko"
+        android:text="Dhanmondi, Dhaka"
+        android:textColor="@color/colorDarkGrey"
+        android:textSize="@dimen/smaller_text"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/location"
+        android:layout_marginTop="@dimen/size_10"
+        android:fontFamily="@font/rocko"
+        android:text="Description"
+        android:textColor="@color/colorGrey"
+        android:textSize="@dimen/smaller_text" />
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_desc"
+        android:fontFamily="@font/rocko"
+        android:text="Fever"
+        android:textColor="@color/colorDarkGrey"
+        android:textSize="@dimen/smaller_text"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_poster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/desc"
+        android:layout_marginTop="@dimen/size_10"
+        android:fontFamily="@font/rocko"
+        android:text="Posted By"
+        android:textColor="@color/colorGrey"
+        android:textSize="@dimen/smaller_text" />
+
+    <TextView
+        android:id="@+id/poster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_poster"
+        android:fontFamily="@font/rocko"
+        android:text="Saad Ahmed"
+        android:textColor="@color/colorDarkGrey"
+        android:textSize="@dimen/smaller_text"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/call_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/poster"
+        android:layout_marginTop="@dimen/size_10"
+        android:background="@drawable/bg_light_red_5"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/size_10"
+        android:paddingTop="@dimen/size_5"
+        android:paddingEnd="@dimen/size_10"
+        android:paddingBottom="@dimen/size_5">
+
+        <ImageView
+            android:layout_width="@dimen/size_15"
+            android:layout_height="@dimen/size_15"
+            android:src="@drawable/call"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_10"
+            android:fontFamily="@font/rocko"
+            android:text="Call"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/small_text" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/message_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/poster"
+        android:layout_marginStart="@dimen/size_15"
+        android:layout_marginTop="@dimen/size_10"
+        android:layout_toEndOf="@id/call_btn"
+        android:background="@drawable/bg_light_red_5"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/size_10"
+        android:paddingTop="@dimen/size_5"
+        android:paddingEnd="@dimen/size_10"
+        android:paddingBottom="@dimen/size_5">
+
+        <ImageView
+            android:layout_width="@dimen/size_15"
+            android:layout_height="@dimen/size_15"
+            android:src="@drawable/message"
+            app:tint="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_10"
+            android:fontFamily="@font/rocko"
+            android:text="Message"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/small_text" />
+
+    </LinearLayout>
+
+</RelativeLayout>
