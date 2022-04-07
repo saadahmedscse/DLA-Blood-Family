@@ -38,7 +38,7 @@ class AuthRepository : AuthInterface {
                 }
 
                 override fun onVerificationCompleted(phoneAuthCredential: PhoneAuthCredential) {
-                    signInWithCredential(phoneAuthCredential, authMutableLiveData)
+                    //signInWithCredential(phoneAuthCredential, authMutableLiveData)
                 }
 
                 override fun onVerificationFailed(e: FirebaseException) {
