@@ -1,15 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     tools:context=".view.fragment.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Profile"
-        android:textSize="25sp"/>
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/bg"
+                    android:layout_width="@dimen/size_80"
+                    android:layout_height="@dimen/size_80"
+                    android:layout_marginStart="@dimen/size_15"
+                    android:layout_marginTop="@dimen/size_10"
+                    android:layout_marginBottom="@dimen/size_10"
+                    android:background="@drawable/bg_white_circle"
+                    android:elevation="3dp"
+                    android:fontFamily="@font/rocko"
+                    android:gravity="center"
+                    android:textColor="@color/colorLightRed"
+                    android:textSize="@dimen/medium_text"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/size_15"
+                    android:layout_marginTop="@dimen/size_10"
+                    android:layout_toEndOf="@id/bg"
+                    android:fontFamily="@font/rocko"
+                    android:textColor="@color/colorDarkGrey"
+                    android:textSize="@dimen/small_text"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/name"
+                    android:layout_marginStart="@dimen/size_15"
+                    android:layout_marginTop="@dimen/size_5"
+                    android:layout_toEndOf="@id/bg"
+                    android:fontFamily="@font/rocko"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/smaller_text" />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/number"
+                    android:layout_marginStart="@dimen/size_15"
+                    android:layout_marginTop="@dimen/size_10"
+                    android:layout_toEndOf="@id/bg"
+                    android:fontFamily="@font/rocko"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/smaller_text" />
+
+                <TextView
+                    android:id="@+id/txt_ldd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/bg"
+                    android:layout_marginStart="@dimen/size_15"
+                    android:layout_marginTop="@dimen/size_5"
+                    android:fontFamily="@font/rocko"
+                    android:text="Last donation date"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/smaller_text" />
+
+                <TextView
+                    android:id="@+id/txt_can_donate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ld_date"
+                    android:layout_marginStart="@dimen/size_15"
+                    android:layout_marginTop="@dimen/size_10"
+                    android:fontFamily="@font/rocko"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/smaller_text" />
+
+                <TextView
+                    android:id="@+id/donate_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_45"
+                    android:layout_below="@id/txt_can_donate"
+                    android:layout_marginStart="@dimen/size_15"
+                    android:layout_marginTop="@dimen/size_5"
+                    android:layout_marginEnd="@dimen/size_15"
+                    android:background="@drawable/bg_disabled_button"
+                    android:fontFamily="@font/rocko"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="DONATE TODAY"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/small_text" />
+
+                <TextView
+                    android:id="@+id/ld_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txt_ldd"
+                    android:layout_marginStart="@dimen/size_15"
+                    android:fontFamily="@font/rocko"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorDarkGrey"
+                    android:textSize="@dimen/smaller_text" />
+
+                <com.google.android.gms.ads.AdView
+                    android:id="@+id/adView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/donate_btn"
+                    android:layout_marginTop="@dimen/size_10"
+                    ads:adSize="BANNER"
+                    ads:adUnitId="@string/banner_ad_id">
+                </com.google.android.gms.ads.AdView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_10"
+                    android:layout_below="@id/adView"/>
+
+                <LinearLayout
+                    android:id="@+id/no_data_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_below="@id/donate_btn"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/size_150"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_100"
+                        android:layout_height="@dimen/size_100"
+                        android:src="@drawable/empty"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:textSize="@dimen/smaller_text"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorGrey"
+                        android:fontFamily="@font/rocko"
+                        android:text="It seems that you haven't\nposted for blood"
+                        android:textAlignment="center"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/logout_btn"
+            android:layout_width="@dimen/size_120"
+            android:layout_height="@dimen/size_50"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/size_15"
+            android:layout_marginBottom="@dimen/size_15"
+            android:background="@drawable/bg_light_red_5"
+            android:elevation="3dp"
+            android:fontFamily="@font/rocko"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="Logout"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/small_text" />
+
+    </RelativeLayout>
 
 </FrameLayout>
