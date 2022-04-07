@@ -11,4 +11,6 @@ interface PostInterface {
     suspend fun getPosts(bloodMutableLiveData: MutableLiveData<DataState<ArrayList<BloodModel>>>)
 
     fun deletePost(bloodModel: BloodModel)
+
+    suspend fun getMyPosts(bloodMutableLiveData: MutableLiveData<DataState<ArrayList<BloodModel>>>)
 }

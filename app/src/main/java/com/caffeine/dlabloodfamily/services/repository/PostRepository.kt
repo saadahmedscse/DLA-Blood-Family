@@ -48,4 +48,22 @@ class PostRepository : PostInterface {
     override fun deletePost(bloodModel: BloodModel) {
         Constants.postReference.child(bloodModel.uid).child(bloodModel.id).removeValue()
     }
+
+    override suspend fun getMyPosts(bloodMutableLiveData: MutableLiveData<DataState<ArrayList<BloodModel>>>) {
+        bloodMutableLiveData.postValue(DataState.Loading())
+        val list = ArrayList<BloodModel>()
+        Constants.postReference.child(Constants.auth.uid!!).addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                list.clear()
+                for (ds in snapshot.children){
+                    ds.getValue(BloodModel::class.java)?.let { list.add(it) }
+                }
+                bloodMutableLiveData.postValue(DataState.Success(list))
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                bloodMutableLiveData.postValue(DataState.Failed(error.message))
+            }
+        })
+    }
 }
