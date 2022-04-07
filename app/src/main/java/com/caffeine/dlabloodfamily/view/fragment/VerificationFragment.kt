@@ -88,7 +88,7 @@ class VerificationFragment : Fragment() {
 
                             Handler(Looper.getMainLooper()).postDelayed({
                                 if (it.data == "noInfo") {
-                                    val action = VerificationFragmentDirections.verificationToInfo("+88$number")
+                                    val action = VerificationFragmentDirections.verificationToInfo(number)
                                     Navigation.findNavController(requireView()).navigate(action)
                                 }
                                 if (it.data == "hasInfo"){
