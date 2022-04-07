@@ -9,21 +9,32 @@
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/drawable/bg_dark_grey_5.xml" value="0.1045" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/drawable/bg_disabled_button.xml" value="0.1585" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/drawable/bg_green_5.xml" value="0.1045" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/drawable/bg_green_circle.xml" value="0.1045" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/drawable/bg_grey_5.xml" value="0.1045" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/drawable/bg_light_grey_5.xml" value="0.1045" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/drawable/bg_light_red_5.xml" value="0.1045" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/drawable/bg_red_circle.xml" value="0.1045" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/drawable/bg_white_circle.xml" value="0.1045" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/activity_authentication.xml" value="0.209375" />
-        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/activity_home.xml" value="0.209375" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/activity_main.xml" value="0.209375" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/activity_splash.xml" value="0.209375" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/alert_dialog.xml" value="0.25" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/fragment_auth.xml" value="0.25" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/fragment_checking.xml" value="0.209375" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/fragment_donor.xml" value="0.209375" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/fragment_info.xml" value="0.25" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/fragment_post.xml" value="0.209375" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/fragment_profile.xml" value="0.1953125" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/fragment_verification.xml" value="0.25" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/item_layout_donor.xml" value="0.25" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/item_layout_viewpager.xml" value="0.25" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/layout_blood_bags.xml" value="0.209375" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/layout_blood_groups.xml" value="0.25" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/layout_donate_time.xml" value="0.209375" />
         <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/layout/success_dialog.xml" value="0.25" />
+        <entry key="..\:/Documents/Google Play Console/DLABloodFamily/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.209375" />
       </map>
     </option>
   </component>

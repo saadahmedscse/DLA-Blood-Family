@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.DLABloodFamily" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/colorDarkGrey</item>
+        <item name="colorPrimary">@color/colorLightRed</item>
         <item name="colorPrimaryVariant">@color/colorDarkGrey</item>
         <item name="colorOnPrimary">@color/colorWhite</item>
         <!-- Secondary brand color. -->
