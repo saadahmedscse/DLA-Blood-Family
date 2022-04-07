@@ -1,6 +1,8 @@
 package com.caffeine.dlabloodfamily.view.fragment
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +12,7 @@ import androidx.fragment.app.viewModels
 import com.caffeine.dlabloodfamily.R
 import com.caffeine.dlabloodfamily.databinding.FragmentDonorBinding
 import com.caffeine.dlabloodfamily.services.model.UserDetails
-import com.caffeine.dlabloodfamily.utils.Constants
-import com.caffeine.dlabloodfamily.utils.DataState
+import com.caffeine.dlabloodfamily.utils.*
 import com.caffeine.dlabloodfamily.view.activity.HomeActivity
 import com.caffeine.dlabloodfamily.view.adapter.DonorAdapter
 import com.caffeine.dlabloodfamily.viewmodel.UserViewModel
@@ -34,6 +35,9 @@ class DonorFragment : Fragment() {
     ): View {
         binding = FragmentDonorBinding.inflate(inflater)
 
+        val adUtils = AdUtils.getInstance(requireContext())
+        adUtils.showBannerAd(binding.adView)
+
         binding.recyclerView.layoutManager = Constants.getVerticalLayoutManager(requireContext())
         bgList = ArrayList()
         user = ArrayList()
@@ -44,9 +48,14 @@ class DonorFragment : Fragment() {
         viewModel.getDonors()
         viewModel.donorLiveData.observe(viewLifecycleOwner){
             when (it) {
-                is DataState.Loading -> {}
+                is DataState.Loading -> {
+                    ProgressDialog.showProgressDialog(requireContext())
+                }
 
                 is DataState.Success -> {
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        ProgressDialog.dismiss()
+                    }, 1000)
                     user = it.data!!
                     val adapter = DonorAdapter(it.data, requireContext())
 
@@ -58,7 +67,12 @@ class DonorFragment : Fragment() {
                     binding.recyclerView.adapter = adapter
                 }
 
-                is DataState.Failed -> {}
+                is DataState.Failed -> {
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        ProgressDialog.dismiss()
+                    }, 1000)
+                    AlertDialog.showAlertDialog(requireContext(), it.message!!, "Close")
+                }
             }
         }
 
